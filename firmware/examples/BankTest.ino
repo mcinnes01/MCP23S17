@@ -8,8 +8,8 @@ const uint8_t chipSelect = 10;
 // Bank 1 is address 1.
 // Increase the addresses by 2 for each BA value.
 
-MCP23S17 Bank1(&SPI, chipSelect, 0);
-MCP23S17 Bank2(&SPI, chipSelect, 1);
+MCP23S17 Bank1(chipSelect, 0);
+MCP23S17 Bank2(chipSelect, 1);
 
 void setup() {
 	Bank1.begin();
