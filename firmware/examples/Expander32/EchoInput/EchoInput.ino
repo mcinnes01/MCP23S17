@@ -1,4 +1,4 @@
-#include <MCP23S17.h>
+#include <mcp23s17_photon.h>
 
 #ifdef __PIC32MX__
 // chipKIT uses the DSPI library instead of the SPI library as it's better
