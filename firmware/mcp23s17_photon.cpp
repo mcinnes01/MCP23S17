@@ -84,8 +84,13 @@ MCP23S17::MCP23S17(uint8_t cs, uint8_t addr) {
  *
  */
 void MCP23S17::begin() {
-    ::SPI.begin();
-    ::digitalWrite(_cs, OUTPUT);
+    ::pinMode(_cs, OUTPUT);
+	::SPI.begin():
+	#if defined(SPARK)
+	  SPI.setClockDivider(SPI_CLOCK_DIV8);   // Sets the SPI bus speed on the spark to 72Mhz/8 = 9Mhz
+	#else
+	  SPI.setClockDivider(SPI_CLOCK_DIV2);   // Sets the SPI bus speed
+	#endif
     ::digitalWrite(_cs, HIGH);
     uint8_t cmd = 0b01000000;
     ::digitalWrite(_cs, LOW);
