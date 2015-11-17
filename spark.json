@@ -1,0 +1,7 @@
+{
+    "name": "mcp23s17",
+    "version": "0.0.1",
+    "author": " Majenko Technologies ported for Photon by Andrew McInnes",
+    "license": "The MIT License (MIT)",
+    "description": "A Particle Photon port of Majenko Technologies library for the Microchip MCP23S17."
+}
