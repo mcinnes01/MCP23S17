@@ -1,4 +1,4 @@
 MCP23S17
 ========
 
-Arduino library for MCP23S17 IO Expanders
+Port for particle photon of the arduino library for MCP23S17 IO Expanders
