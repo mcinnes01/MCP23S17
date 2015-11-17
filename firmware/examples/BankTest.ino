@@ -1,13 +1,5 @@
-#include <mcp23s17_photon.h>
-
-#ifdef __PIC32MX__
-// chipKIT uses the DSPI library instead of the SPI library as it's better
-#include <DSPI.h>
-DSPI0 SPI;
-#else
-// Everytying else uses the SPI library
-#include <SPI.h>
-#endif
+// This #include statement was automatically added by the Particle IDE.
+#include "mcp23s17_photon/mcp23s17_photon.h"
 
 const uint8_t chipSelect = 10;
 
