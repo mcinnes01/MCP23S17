@@ -32,27 +32,15 @@
 #ifndef _MCP23S17_H
 #define _MCP23S17_H
 
-#if (ARDUINO >= 100) 
-# include <Arduino.h>
+#if defined(ARDUINO) && ARDUINO >= 100
+#include "Arduino.h"
 #elif defined(SPARK)
-  #include "application.h"
-#else
-# include <WProgram.h>
+#include "application.h"
 #endif
 
-#ifdef __PIC32MX__
-#include <DSPI.h>
-#else
-#include <SPI.h>
-#endif
 
 class MCP23S17 {
     private:
-#ifdef __PIC32MX__
-        DSPI *_spi; /*! This points to a valid SPI object created from the chipKIT DSPI library. */
-#else
-        SPIClass *_spi; /*! This points to a valid SPI object created from the Arduino SPI library. */
-#endif
         uint8_t _cs;    /*! Chip select pin */
         uint8_t _addr;  /*! 3-bit chip address */
     
@@ -78,13 +66,7 @@ class MCP23S17 {
         void writeAll();
     
     public:
-#ifdef __PIC32MX__
-        MCP23S17(DSPI *spi, uint8_t cs, uint8_t addr);
-        MCP23S17(DSPI &spi, uint8_t cs, uint8_t addr);
-#else
-        MCP23S17(SPIClass *spi, uint8_t cs, uint8_t addr);
-        MCP23S17(SPIClass &spi, uint8_t cs, uint8_t addr);
-#endif
+        MCP23S17(uint8_t cs, uint8_t addr);
         void begin();
         void pinMode(uint8_t pin, uint8_t mode);
         void digitalWrite(uint8_t pin, uint8_t value);
