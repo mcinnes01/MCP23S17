@@ -91,7 +91,9 @@ void MCP23S17::begin() {
 	#else
 	  SPI.setClockDivider(SPI_CLOCK_DIV2);   // Sets the SPI bus speed
 	#endif
-    ::digitalWrite(_cs, HIGH);
+	SPI.setBitOrder(MSBFIRST);            // Sets SPI bus bit order (this is the default, setting it for good form!)
+	SPI.setDataMode(SPI_MODE0);           // Sets the SPI bus timing mode (this is the default, setting it for good form!)
+  
     uint8_t cmd = 0b01000000;
     ::digitalWrite(_cs, LOW);
     ::SPI.transfer(cmd);
