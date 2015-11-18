@@ -1,4 +1,3 @@
-++++++++++++++++++++++/*
  * Copyright (c) 2014, Majenko Technologies
  * All rights reserved.
  * 
